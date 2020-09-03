@@ -1,0 +1,18 @@
+{
+  "name": "thcet",
+  "version": "1.0.0",
+  "description": "Server for THCET App",
+  "main": "main.js",
+  "scripts": {
+    "test": "thcet"
+  },
+  "keywords": [
+    "server"
+  ],
+  "author": "Augustin Jose",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
