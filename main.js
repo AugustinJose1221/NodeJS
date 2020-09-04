@@ -19,6 +19,26 @@ var app = http.createServer(function(req,res){
 });
 app.listen(port, '192.168.43.168', () => console.log("server running on port:" + port));
 */
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "augustinjose",
+  password: "",
+  database: "thcet"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+
+    //console.log("Result: " + result);
+
+  con.query("select * from userdetails", function (err, results, fields) {
+    if (err) throw err;
+    console.log("DeviceId: " + results[0].deviceId + " Username: " + results[0].username);
+    });
+});
 
 var express = require('express');
 
