@@ -94,7 +94,18 @@ app.post('/', function(request, response){
           response.send(JSON.stringify({ a:'False' }));
         }
       });
+    }
 
+    else if (query=="Chat") {
+      //console.log("test")
+      var deviceId = request.body.deviceId;
+      var id = request.body.id;
+      var createdAt = request.body.createdAt;
+      var text = request.body.text;
+      var threadId = request.body.threadId;
+      //console.log(deviceId + " " + id + " " + createdAt + " " + text + " " + threadId)
+      con.query("insert into chat(deviceId, id, createdAt, text, threadId) values(?, ?, ?, ?, ?);", [deviceId, id, createdAt, text, threadId])
+      response.send(JSON.stringify({ a:'True' }));
     }
 
     //response.send(JSON.stringify({ a:'True' }));    // echo the result back
